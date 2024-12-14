@@ -1,8 +1,7 @@
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
-        n = len(nums)
-        nums = set(nums)
-        for i in range(1, n+1):
-            if i not in nums:
+        lookup = set(nums)
+        for i in range(1, len(nums)+1):
+            if i not in lookup:
                 return i
-        return n+1
+        return len(nums)+1

@@ -11,9 +11,8 @@ class Solution:
             a.append(tail.val)
             tail = tail.next
         a.sort()
-        dummy = ListNode(0)
-        tail = dummy
-        for i in range(len(a)):
-            tail.next = ListNode(a[i])
+        tail = head
+        for i in a:
+            tail.val = i
             tail = tail.next
-        return dummy.next
+        return head

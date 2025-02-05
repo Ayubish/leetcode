@@ -7,8 +7,6 @@ class Solution:
             elif command[i] == ")":
                 if command[i-1] == "(":
                     interpreted += "o"
-                else:
-                    continue
             else:
                 interpreted += command[i]
         return interpreted

@@ -9,5 +9,5 @@ class Solution:
                 else:
                     charsCount[char] -= 1
             else:
-                ans.append(word)
-        return len(''.join(ans))
+                ans.append(len(word))
+        return sum(ans)

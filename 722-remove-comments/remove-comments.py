@@ -2,8 +2,8 @@ class Solution:
     def removeComments(self, source: List[str]) -> List[str]:
         multiComment = False
         ans = []
-        nonComment = ""    #"struct Nod"
-        for line in source: #["struct Node{", "    /*/ declare members;/**/", "    int size;", "    /**/int val;", "};"]
+        nonComment = ""   
+        for line in source:
             i=0
             while i<len(line):
                 if i+1<len(line) and line[i]=="/" and line[i+1]=="*" and not multiComment:

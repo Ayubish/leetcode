@@ -3,12 +3,9 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range(len(nums)):
-            swapped = False
-            for j in range(len(nums)-1):
+        n = len(nums)
+        for i in range(n):
+            for j in range(n-1):
                 if nums[j+1]<nums[j]:
                     nums[j], nums[j+1] = nums[j+1], nums[j]
-                    swapped = True
-            if not swapped:
-                break
                 

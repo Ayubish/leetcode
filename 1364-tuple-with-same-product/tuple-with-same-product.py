@@ -7,6 +7,5 @@ class Solution:
         result = 0
         print(dicto)
         for val in dicto.values():
-            if val >= 2:
-                result += (val*(val-1))//2
+            result += (val*(val-1))//2
         return result*8

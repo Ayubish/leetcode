@@ -9,7 +9,7 @@ class Solution:
         if not root:
             return []
         ans = [root.val]
-        left = self.preorderTraversal(root.left);
-        right = self.preorderTraversal(root.right);
+        left = self.preorderTraversal(root.left)
+        right = self.preorderTraversal(root.right)
 
         return ans + left + right

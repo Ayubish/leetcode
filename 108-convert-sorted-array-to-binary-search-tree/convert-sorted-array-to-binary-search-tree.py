@@ -6,15 +6,12 @@
 #         self.right = right
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-        # mid = len(nums)//2
-        # root = TreeNode(nums[mid])
-        def assembler(qurach):
-            if not qurach:
-                return
-            mid = len(qurach)//2
-            root = TreeNode(qurach[mid])
+        if not nums:
+            return
+        mid = len(nums)//2
+        root = TreeNode(nums[mid])
 
-            root.left = assembler(qurach[:mid])
-            root.right = assembler(qurach[mid+1:])
-            return root
-        return assembler(nums)
+        root.left = self.sortedArrayToBST(nums[:mid])
+        root.right = self.sortedArrayToBST(nums[mid+1:])
+        
+        return root

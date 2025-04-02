@@ -1,14 +1,27 @@
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
-        mini = min(nums)
-        maxi = max(nums)
-        arr = [0]*(maxi-mini+1)
-        for num in nums:
-            arr[num-mini] += 1
-        index = 0
-        for i in range(len(arr)):
-            while arr[i]>0:
-                nums[index] = i+mini
-                arr[i] -= 1
-                index+=1
-        return nums
+        def merge(leftHalf, rightHalf):
+            i, j = 0, 0,
+            merged = []
+
+            while i<len(leftHalf) and j<len(rightHalf):
+                if leftHalf[i]<rightHalf[j]:
+                    merged.append(leftHalf[i])
+                    i += 1
+                else:
+                    merged.append(rightHalf[j])
+                    j += 1
+            merged.extend(leftHalf[i:])
+            merged.extend(rightHalf[j:])
+            return merged
+        def mergeSort(arr):
+            if len(arr) <= 1:
+                return arr
+            mid = len(arr)//2
+
+            leftHalf = mergeSort(arr[:mid])
+            rightHalf = mergeSort(arr[mid:])
+
+            return merge(leftHalf, rightHalf)
+            
+        return mergeSort(nums)
